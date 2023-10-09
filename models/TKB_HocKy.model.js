@@ -3,12 +3,13 @@ const {conn,sql} = require('../connect');
 const { lowerCase, localeLowerCase } = require('lower-case');
 
 module.exports = function(){
-    this.getAllTKB = async function(page,limit,search,orderby,orderdir,hocky,result){
+    this.getAllTKB = async function(page,limit,search,orderby,hocky,result){
         var pool = await conn;
         var checknull;
         var sqlString = "Filter_TKB_HocKy"
+        console.log(search)
         if(search != undefined){
-            search = lowerCase(search)
+            search = search.toUpperCase();
         }
         if(limit == undefined || limit == null || limit =='' || !parseInt(limit)){
             limit =10;
@@ -27,12 +28,13 @@ module.exports = function(){
         .input('size',limit)
         .input('search',search)
         .input('orderBy',orderby)
-        .input('orderDir',orderdir)
         .input('hocky',hocky)
         .execute(sqlString,function(err,data){
-            if(data.recordset.length >0){
+            console.log(data)
+            if(data.recordsets.length >0){
                 result(null,data);
             }else{
+                console.log(err)
                 result(true,null);
             }
         })

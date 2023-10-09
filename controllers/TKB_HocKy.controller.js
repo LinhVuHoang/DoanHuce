@@ -5,11 +5,9 @@ const querystring = require('querystring');
 
 exports.getAllTKB = async function(req,res){
     var query = url.parse(req.url,true).query;
-    model.getAllTKB(query.page,query.limit,query.search,query.orderby,query.orderdir,query.hocky,function(err,data){
+    model.getAllTKB(query.page,query.limit,query.search,query.orderby,query.hocky,function(err,data){
         if(!err){
-            console.log("ok")
             console.log(data.recordsets[0].length)
-            console.log("OK1")
             const count = data.recordsets[1][0];
             console.log(count);
             sumpage = count.Filtered / query.limit;
