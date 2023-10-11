@@ -11,7 +11,7 @@ var TKB_dot = require('../controllers/TKB_dot.controller')
  let initAPIs = (app) => {
     router.get('/TKB_HocKy/',TKB_HocKyController.getAllTKB);
     router.get('/TKB_Dot/',TKB_dot.getAll);
-    router.get('/TKB_DS_Sinhvien/:MaLopHocPhan',TKB_DS_SinhVienController.getAll)
+    router.get('/TKB_DS_Sinhvien/:MaLopHocPhan/:MaLopHoc',TKB_DS_SinhVienController.getAll)
     return app.use("/api/v1", router);
  }
 
