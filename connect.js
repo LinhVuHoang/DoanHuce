@@ -1,16 +1,16 @@
-//var sql = require('mssql/msnodesqlv8');// for window
-var sql = require('mssql');
+var sql = require('mssql/msnodesqlv8');// for window
+//var sql = require('mssql');
 //các thông tin kết nối csdl
 var config={
     user:"sa",
-    password:"Docker@123",
-    server:"localhost",
+    password:"12",
+    server:"YUZ",
     database:"EDU_NUCE",
     options: {
-        trustedConnection: true,
-        enableArithAbort: true, 
-        trustServerCertificate: true,
-    //    instanceName: "MSSQLSERVER01"
+        trustedConnection: false,
+         enableArithAbort: true, 
+         trustServerCertificate: true,
+        instanceName: "MSSQLSERVER01"
       },
    driver: "msnodesqlv8",// for window
 };
