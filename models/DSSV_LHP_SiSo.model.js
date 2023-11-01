@@ -7,7 +7,7 @@ module.exports = function(){
         console.log(MaLopHoc)
         console.log(TenDot)
         var pool = await conn
-        var sqlString = "select  IDLopHocPhan,NgayDangKy,IDSinhVien,a.MaSinhVien,a.HoDem,a.Ten,a.NgaySinh,a.GioiTinh,MaLopHoc,TenLopHoc,TrangThaiDangKy,LopDuKien,MaLopHocPhan,a.IDLopHoc,MaHocPhan,MaMonHoc,TenMonHoc,SoTinChi,TenDot,Email,SoDienThoai from DS_SV_DangKyMonHoc as a inner Join DT_SinhVien as b on  a.MaSinhVien = b.MaSinhVien where MaMonHoc=@MaMonHoc and LopDuKien=@MaLopHoc and TenDot=@TenDot and (IDTrangThaiDangKy = 1 OR IDTrangThaiDangKy = 2 OR IDTrangThaiDangKy = 3) order by a.Ten,a.HoDem"
+        var sqlString = "select  IDLopHocPhan,NgayDangKy,IDSinhVien,a.MaSinhVien,a.HoDem,a.Ten,a.NgaySinh,a.GioiTinh,MaLopHoc,TenLopHoc,TrangThaiDangKy,LopDuKien,MaLopHocPhan,a.IDLopHoc,MaHocPhan,MaMonHoc,TenMonHoc,SoTinChi,TenDot,Email,SoDienThoai from DS_SV_DangKyMonHoc as a inner Join DT_SinhVien as b on  a.MaSinhVien = b.MaSinhVien where MaMonHoc=@MaMonHoc and LopDuKien=@MaLopHoc and TenDot=@TenDot and (IDTrangThaiDangKy = 1 OR IDTrangThaiDangKy = 2 OR IDTrangThaiDangKy = 3) and DaDongHocPhi=1  order by a.Ten,a.HoDem"
         return await pool.request()
         .input('MaMonHoc',sql.NVarChar,MaMonHoc)
         .input('MaLopHoc',sql.NVarChar,MaLopHoc)
