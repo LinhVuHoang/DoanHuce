@@ -7,6 +7,7 @@ var TKB_dot = require('../controllers/TKB_dot.controller');
 var DS_DangKyMonHoc = require('../controllers/SV_DS_DangKyMonHoc.controller')
 var DS_LHP_SiSo = require('../controllers/DS_LHP_SiSo.controller')
 var DSSV_LHP_SiSo = require('../controllers/DSSV_LHP_SiSo.controller')
+var KetQuaHocTap=require('../controllers/KetQuaHocTap.controller')
 const AuthMiddleWare = require("../middleware/AuthMiddleware");
 const AuthController = require("../controllers/AuthController");
 
@@ -19,6 +20,7 @@ const AuthController = require("../controllers/AuthController");
    router.post("/refresh-token", AuthController.refreshToken);
    router.use(AuthMiddleWare.isAuth);
    router.get('/TKB_HocKy/',TKB_HocKyController.getAllTKB);
+   router.get('/KetQuaHocTap/',KetQuaHocTap.getAll);
    router.get('/TKB_LichThi/',TKB_LichThiController.getAllLichThi);
    router.get('/SV_DangKyMonHoc/',DS_DangKyMonHoc.getAll);
    router.get('/TKB_Dot/',TKB_dot.getAll);
