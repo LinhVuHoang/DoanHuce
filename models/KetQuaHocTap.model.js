@@ -5,7 +5,7 @@ module.exports = function(){
     this.getAll = async function(MaSinhVien,result){
         var pool = await conn
         console.log(MaSinhVien)
-        var sqlString = "select * from  DiemCacHocKySV where MaSinhVien=@MaSinhVien"
+        var sqlString = "select * from  DiemCacHocKySV where MaSinhVien=@MaSinhVien order by Id,MaHocPhan"
         return await pool.request()
         .input('MaSinhVien',sql.NVarChar,MaSinhVien)
         .query(sqlString,function(err,data){
