@@ -2,12 +2,10 @@ const { response } = require('express');
 const {conn,sql} = require('../connect');
 const { lowerCase, localeLowerCase } = require('lower-case');
 module.exports = function(){
-    this.getAll = async function(MaSinhVien,result){
+    this.getAll = async function(result){
         var pool = await conn
-        console.log(MaSinhVien)
-        var sqlString = "select DISTINCT * from  DiemCacHocKySV where MaSinhVien=@MaSinhVien order by Id,MaHocPhan"
+        var sqlString = "select TenNganh from DM_Nganh order by TenNganh"
         return await pool.request()
-        .input('MaSinhVien',sql.NVarChar,MaSinhVien)
         .query(sqlString,function(err,data){
             try{
                 if(data.recordset.length>0){
