@@ -4,7 +4,7 @@ const { lowerCase, localeLowerCase } = require('lower-case');
 module.exports = function(){
     this.getAll = async function(result){
         var pool = await conn
-        var sqlString = "select TenNganh from DM_Nganh order by TenNganh"
+        var sqlString = "select Distinct TenNganh from DM_Nganh order by TenNganh"
         return await pool.request()
         .query(sqlString,function(err,data){
             try{
