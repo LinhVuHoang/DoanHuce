@@ -5,7 +5,7 @@ const querystring = require('querystring');
 
 exports.getAllLichThi = async function(req,res){
     var query = url.parse(req.url,true).query;
-    model.getAllLichThi(query.page,query.limit,query.search,query.orderby,query.hocky,function(err,data){
+    model.getAllLichThi(query.page,query.limit,query.search,query.orderby,query.hocky,query.ngaythi,function(err,data){
         if(!err){
             console.log(data.recordsets[0].length)
             const count = data.recordsets[1][0];
