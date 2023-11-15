@@ -7,7 +7,7 @@ module.exports = function(){
         console.log(MaPhong)
         console.log(NgayBatDau)
         console.log(NgayKetThuc)
-        var sqlString = "select * from View_SuDungPhong where MaPhong=@MaPhong and (NgayBatDau >= @NgayBatDau and NgayKetThuc <=@NgayKetThuc)"
+        var sqlString = "select * from View_SuDungPhong where MaPhong=@MaPhong and (NgayBatDau >= @NgayBatDau and NgayKetThuc <=@NgayKetThuc) Order by NgayBatDau,TuTiet"
         return await pool.request()
         .input('MaPhong',sql.NVarChar,MaPhong)
         .input('NgayBatDau',sql.NVarChar,NgayBatDau)
