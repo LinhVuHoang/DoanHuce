@@ -8,7 +8,7 @@
  let tokenList = {};
  
  // Thời gian sống của token
- const accessTokenLife = process.env.ACCESS_TOKEN_LIFE || "1h";
+ const accessTokenLife = process.env.ACCESS_TOKEN_LIFE || "24h";
  // Mã secretKey này phải được bảo mật tuyệt đối, các bạn có thể lưu vào biến môi trường hoặc file
  const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "accesstoken-DoanHUCE";
  
@@ -44,7 +44,7 @@
     // //    name: dataaccount.Username,
     //    data: dataaccount
     //  };
-     debug(`Thực hiện tạo mã Token, [thời gian sống 1 giờ.]`);
+     debug(`Thực hiện tạo mã Token, [thời gian sống 24 giờ.]`);
      const accessToken = await  jwtHelper.generateToken(dataaccount, accessTokenSecret, accessTokenLife);
      
      debug(`Thực hiện tạo mã Refresh Token, [thời gian sống 10 năm] =))`);
