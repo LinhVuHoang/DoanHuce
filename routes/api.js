@@ -11,6 +11,7 @@ var KetQuaHocTap=require('../controllers/KetQuaHocTap.controller')
 var Nganh = require('../controllers/Nganh.controller')
 var TKB_GiangDayGV = require('../controllers/TKB_GiangDayGV.controller')
 var Phonghoc = require('../controllers/PH_LichSu.controller')
+var QLDHP = require('../controllers/QLDHP.Controller')
 const AuthMiddleWare = require("../middleware/AuthMiddleware");
 const AuthController = require("../controllers/AuthController");
 
@@ -29,6 +30,8 @@ const AuthController = require("../controllers/AuthController");
    router.get('/TKB_LichThi/',TKB_LichThiController.getAllLichThi);
    router.get('/SV_DangKyMonHoc/',DS_DangKyMonHoc.getAll);
    router.get('/TKB_Dot/',TKB_dot.getAll);
+   router.get('/QLDHP/',QLDHP.getAll);
+   router.put('/QLDHP/:IDLopHocPhan',QLDHP.update);
    router.get('/Nganh',Nganh.getAll);
    router.get('/DS_LHP_SiSo',DS_LHP_SiSo.getAll);
    router.get('/DSSV_LHP_SiSo/:MaMonHoc/:MaLopHoc/:TenDot',DSSV_LHP_SiSo.getAll)
