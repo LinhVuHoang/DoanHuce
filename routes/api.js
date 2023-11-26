@@ -34,6 +34,7 @@ const AuthController = require("../controllers/AuthController");
    router.put('/QLDHP/:IDLopHocPhan',QLDHP.update);
    router.get('/Nganh',Nganh.getAll);
    router.get('/DS_LHP_SiSo',DS_LHP_SiSo.getAll);
+   router.get('/QLDHPDS/',QLDHP.getDS);
    router.get('/DSSV_LHP_SiSo/:MaMonHoc/:MaLopHoc/:TenDot',DSSV_LHP_SiSo.getAll)
    router.get('/TKB_DS_Sinhvien/:MaLopHocPhan/:MaLopHoc/:TenDot',TKB_DS_SinhVienController.getAll)
    return app.use("/api/v1", router);

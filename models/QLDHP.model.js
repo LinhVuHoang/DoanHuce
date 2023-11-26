@@ -58,4 +58,24 @@ module.exports=function(){
             }
         })
     }
+    this.getDS = async function(search,hocky,result){
+        var pool = await conn
+        console.log(search)
+        console.log(hocky)
+        var sqlString = "select * from View_QuanLyHP where (MaMonHoc like '%' +@search+'%'  or TenMonHoc like '%' +@search+'%') and TenDot=@TenDot and IsDaNopBanGiay Is NUll"
+        return await pool.request()
+        .input('search',sql.NVarChar,search)
+        .input('TenDot',sql.NVarChar,hocky)
+        .query(sqlString,function(err,data){
+            try{
+                if(data.recordset.length>0){
+                    result(null,data);
+                }else{
+                    result(true,null);
+                }
+            }catch(error){
+                console.log(error)
+            }
+        })
+    }
 }

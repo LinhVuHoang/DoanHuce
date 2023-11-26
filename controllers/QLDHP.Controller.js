@@ -42,3 +42,13 @@ exports.update = async function(req,res){
     })
     
 }
+exports.getDS = async function(req,res){
+    var query = url.parse(req.url,true).query;
+    model.getDS(query.search,query.hocky,function(err,data){
+        if(!err){
+            res.send({result:data});
+        }else{
+            res.send({result:null,error: err});
+        }
+    })
+}
