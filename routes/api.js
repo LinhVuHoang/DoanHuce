@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const router = express.Router();
 var TKB_HocKyController = require('../controllers/TKB_HocKy.controller');
 var TKB_DS_SinhVienController = require('../controllers/TKB_DS_SinhVien.controller');
@@ -27,9 +28,9 @@ const AuthController = require("../controllers/AuthController");
    router.get('/TKB_GiangDay/',TKB_GiangDayGV.getAll);
    router.get('/KetQuaHocTap/',KetQuaHocTap.getAll);
    router.get('/LichSuPH/',Phonghoc.getAll);
+   router.get('/TKB_Dot/',TKB_dot.getAll);
    router.get('/TKB_LichThi/',TKB_LichThiController.getAllLichThi);
    router.get('/SV_DangKyMonHoc/',DS_DangKyMonHoc.getAll);
-   router.get('/TKB_Dot/',TKB_dot.getAll);
    router.get('/QLDHP/',QLDHP.getAll);
    router.put('/QLDHP/:IDLopHocPhan/:status',QLDHP.update);
    router.get('/Nganh',Nganh.getAll);
@@ -37,6 +38,7 @@ const AuthController = require("../controllers/AuthController");
    router.get('/QLDHPDS/',QLDHP.getDS);
    router.get('/DSSV_LHP_SiSo/:MaMonHoc/:MaLopHoc/:TenDot',DSSV_LHP_SiSo.getAll)
    router.get('/TKB_DS_Sinhvien/:MaLopHocPhan/:MaLopHoc/:TenDot',TKB_DS_SinhVienController.getAll)
+   
    return app.use("/api/v1", router);
  }
 
