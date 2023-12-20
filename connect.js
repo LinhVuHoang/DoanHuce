@@ -12,8 +12,7 @@ if (os.platform() === 'win32') {
     options: {
         trustedConnection: false,
          enableArithAbort: true, 
-         trustServerCertificate: true,
-        instanceName: "MSSQLSERVER01"
+         trustServerCertificate: true
       },
    driver: "msnodesqlv8",// for window
 };

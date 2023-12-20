@@ -63,7 +63,7 @@ module.exports=function(){
             var sqlString = "UPDATE DT_XacNhanNopbanGiay SET IsDaNopBanGiay=@IsDaNopBanGiay where Id=@Id"
             return await pool.request()
         .input('IsDaNopBanGiay',sql.Int,status)
-        .input('Id',sql.NVarChar,IDLopHocPhan)
+        .input('Id',sql.NVarChar,Id)
         .query(sqlString,function(err,data){
             if(err){
                 result(true,null);
