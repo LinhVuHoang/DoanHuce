@@ -32,7 +32,7 @@ const AuthController = require("../controllers/AuthController");
    router.get('/TKB_LichThi/',TKB_LichThiController.getAllLichThi);
    router.get('/SV_DangKyMonHoc/',DS_DangKyMonHoc.getAll);
    router.get('/QLDHP/',QLDHP.getAll);
-   router.put('/QLDHP/:IDLopHocPhan/:status',QLDHP.update);
+   router.put('/QLDHP/:Id/:status',QLDHP.update);
    router.get('/Nganh',Nganh.getAll);
    router.get('/DS_LHP_SiSo',DS_LHP_SiSo.getAll);
    router.get('/QLDHPDS/',QLDHP.getDS);

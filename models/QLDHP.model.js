@@ -41,34 +41,34 @@ module.exports=function(){
             }
         })
     }
-    this.update =async function(IDLopHocPhan,status,result){
+    this.update =async function(Id,status,result){
         var pool= await conn;
         const currentTime = moment();
         const vietnamTime = currentTime.tz('Asia/Ho_Chi_Minh').format();
         console.log(vietnamTime)
         if(status==1){
-        var sqlString = "UPDATE DT_KhoaDiem SET IsDaNopBanGiay=@IsDaNopBanGiay, NgayNopBanGiay=DATEADD(HOUR, 7, @NgayNopBanGiay) where IDLopHocPhan=@IDLopHocPhan"
+        var sqlString = "UPDATE DT_XacNhanNopbanGiay SET IsDaNopBanGiay=@IsDaNopBanGiay, NgayNopBanGiay=DATEADD(HOUR, 7, @NgayNopBanGiay) where Id=@Id"
         return await pool.request()
         .input('IsDaNopBanGiay',sql.Int,status)
         .input('NgayNopBanGiay',sql.DateTime,vietnamTime)
-        .input('IDLopHocPhan',sql.NVarChar,IDLopHocPhan)
+        .input('Id',sql.NVarChar,Id)
         .query(sqlString,function(err,data){
             if(err){
                 result(true,null);
             }else{
-                result(null,IDLopHocPhan);
+                result(null,Id);
             }
         })
         }else{
-            var sqlString = "UPDATE DT_KhoaDiem SET IsDaNopBanGiay=@IsDaNopBanGiay where IDLopHocPhan=@IDLopHocPhan"
+            var sqlString = "UPDATE DT_XacNhanNopbanGiay SET IsDaNopBanGiay=@IsDaNopBanGiay where Id=@Id"
             return await pool.request()
         .input('IsDaNopBanGiay',sql.Int,status)
-        .input('IDLopHocPhan',sql.NVarChar,IDLopHocPhan)
+        .input('Id',sql.NVarChar,IDLopHocPhan)
         .query(sqlString,function(err,data){
             if(err){
                 result(true,null);
             }else{
-                result(null,IDLopHocPhan);
+                result(null,Id);
             }
         })
         }

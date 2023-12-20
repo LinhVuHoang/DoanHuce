@@ -33,7 +33,7 @@ exports.getAll = async function(req,res){
     });
 }
 exports.update = async function(req,res){
-    model.update(req.params.IDLopHocPhan,req.params.status,function(err,data){
+    model.update(req.params.Id,req.params.status,function(err,data){
         if(!err){
             res.send({result:data});
         }else{
