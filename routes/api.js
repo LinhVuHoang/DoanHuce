@@ -13,6 +13,7 @@ var Nganh = require('../controllers/Nganh.controller')
 var TKB_GiangDayGV = require('../controllers/TKB_GiangDayGV.controller')
 var Phonghoc = require('../controllers/PH_LichSu.controller')
 var QLDHP = require('../controllers/QLDHP.Controller')
+var TaiKhoanQLDT = require('../controllers/Account.controller')
 const AuthMiddleWare = require("../middleware/AuthMiddleware");
 const AuthController = require("../controllers/AuthController");
 
@@ -22,8 +23,13 @@ const AuthController = require("../controllers/AuthController");
   */
  let initAPIs = (app) => {
    router.post("/login", AuthController.login);
+   router.post('/sign_up',TaiKhoanQLDT.create);
+   router.get("/check_sign_up",TaiKhoanQLDT.getAllcheck);
    router.post("/refresh-token", AuthController.refreshToken);
+
    router.use(AuthMiddleWare.isAuth);
+   router.get('/Account',TaiKhoanQLDT.getAll);
+   router.put('/Account/:Email/:Role',TaiKhoanQLDT.update);
    router.get('/TKB_HocKy/',TKB_HocKyController.getAllTKB);
    router.get('/TKB_GiangDay/',TKB_GiangDayGV.getAll);
    router.get('/KetQuaHocTap/',KetQuaHocTap.getAll);
