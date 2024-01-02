@@ -85,5 +85,21 @@ module.exports = function(){
                 }
             });
         }
+        this.updateAccount = async function(Email,Password,result){
+            var pool = await conn;
+            const hashedPassword = crypto.createHash('md5').update(Password).digest('hex');
+            console.log(hashedPassword)
+            var sqlString = "UPDATE DM_NhanSuHeThongQLTD SET Password = @Password WHERE Email= @Email";
+            return  pool.request()
+            .input('Password',sql.NVarChar,hashedPassword)
+            .input('Email',sql.NVarChar,Email)
+            .query(sqlString,function(err,data){
+                if(err){
+                    result(true,null);
+                }else{
+                    result(null,data);
+                }
+            });
+        }
      };
   

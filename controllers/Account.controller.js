@@ -52,3 +52,13 @@ exports.getAll = async function(req,res){
             }
         });
     }
+    exports.UpdateAccount = async function(req,res){
+        model.updateAccount(req.params.Email,req.params.Password,function(err,data){
+            if(!err){
+                res.send({result:data});
+            }else{
+                
+                res.send({result:null,error: err});
+            }
+        })
+    }

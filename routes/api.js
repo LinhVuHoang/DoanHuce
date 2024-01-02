@@ -30,6 +30,7 @@ const AuthController = require("../controllers/AuthController");
    router.use(AuthMiddleWare.isAuth);
    router.get('/Account',TaiKhoanQLDT.getAll);
    router.put('/Account/:Email/:Role',TaiKhoanQLDT.update);
+   router.put('/AccountPass/:Email/:Password',TaiKhoanQLDT.UpdateAccount);
    router.get('/TKB_HocKy/',TKB_HocKyController.getAllTKB);
    router.get('/TKB_GiangDay/',TKB_GiangDayGV.getAll);
    router.get('/KetQuaHocTap/',KetQuaHocTap.getAll);
